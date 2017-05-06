@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chivvon.mapviewer.view.gui.BuilderController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="950.0">
+         <left>
+            <VBox>
+               <children>
+                  <TabPane prefHeight="505.0" prefWidth="227.0" tabClosingPolicy="UNAVAILABLE">
+                     <tabs>
+                        <Tab text="Tile Information">
+                           <content>
+                              <SplitPane prefHeight="200.0" prefWidth="200.0">
+                                 <items>
+                                    <TabPane prefHeight="429.0" prefWidth="287.0" style="-fx-border-color: #c7c7c7;" tabClosingPolicy="UNAVAILABLE">
+                                       <tabs>
+                                          <Tab text="Overlay">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Accordion minWidth="-Infinity" prefHeight="256.0" prefWidth="228.0">
+                                                         <panes>
+                                                            <TitledPane prefHeight="206.0" prefWidth="194.0" text="Colors">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="220.0" prefWidth="250.0" />
+                                                               </content>
+                                                            </TitledPane>
+                                                            <TitledPane prefHeight="206.0" prefWidth="225.0" text="Shapes">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                               </content>
+                                                            </TitledPane>
+                                                            <TitledPane text="Flags">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                               </content>
+                                                            </TitledPane>
+                                                         </panes>
+                                                      </Accordion>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="Underlay">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Accordion minWidth="-Infinity" prefHeight="231.0" prefWidth="228.0">
+                                                         <panes>
+                                                            <TitledPane text="Colors">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                               </content>
+                                                            </TitledPane>
+                                                            <TitledPane text="Shapes">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                               </content>
+                                                            </TitledPane>
+                                                         </panes>
+                                                      </Accordion>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="Heightmap">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                             </content>
+                                          </Tab>
+                                       </tabs>
+                                    </TabPane>
+                                 </items>
+                              </SplitPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Object Information">
+                           <content>
+                              <TitledPane expanded="false" text="Nothing available yet">
+                                 <content>
+                                    <Label alignment="CENTER" style="-fx-border-color: #b5b5b5;" text="Nothing available yet" />
+                                 </content>
+                              </TitledPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="Game View">
+                     <content>
+                        <SwingNode fx:id="swingNode" />
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+         <top>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <MenuBar>
+                    <menus>
+                      <Menu mnemonicParsing="false" text="Map">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Load map" />
+                              <MenuItem mnemonicParsing="false" text="Save map tiles" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Toggle">
+                        <items>
+                              <CheckMenuItem mnemonicParsing="false" text="Debug" />
+                              <CheckMenuItem mnemonicParsing="false" text="Fog" />
+                              <CheckMenuItem mnemonicParsing="false" text="Tiles only" />
+                              <CheckMenuItem mnemonicParsing="false" text="Tileblending" />
+                              <CheckMenuItem mnemonicParsing="false" text="Invisible overlay tiles" />
+                              <CheckMenuItem mnemonicParsing="false" text="Overlaytiles" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+               </children>
+            </VBox>
+         </top>
+         <right>
+            <VBox style="-fx-border-color: #c7c7c7;">
+               <children>
+                  <TitledPane expanded="false" layoutX="10.0" layoutY="10.0" text="Select Tool">
+                     <content>
+                        <StackPane>
+                           <children>
+                              <GridPane>
+                                 <children>
+                                    <TabPane>
+                                       <tabs>
+                                          <Tab closable="false" text="Select tool">
+                                             <content>
+                                                <VBox spacing="3.0" style="-fx-border-color: #c7c7c7;">
+                                                   <children>
+                                                      <ToggleButton mnemonicParsing="false" text="Set overlay" />
+                                                      <ToggleButton layoutX="13.0" layoutY="13.0" mnemonicParsing="false" text="Set underlay" />
+                                                      <ToggleButton layoutX="13.0" layoutY="13.0" mnemonicParsing="false" text="Heightmap" />
+                                                      <ToggleButton layoutX="13.0" layoutY="13.0" mnemonicParsing="false" text="Add object" />
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                   <padding>
+                                                      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                   </padding>
+                                                </VBox>
+                                             </content>
+                                          </Tab>
+                                       </tabs>
+                                    </TabPane>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane expanded="false" layoutX="10.0" layoutY="10.0" text="Heightlevel">
+                     <content>
+                        <StackPane>
+                           <children>
+                              <GridPane>
+                                 <children>
+                                    <TabPane>
+                                       <tabs>
+                                          <Tab closable="false" text="Heightlevel">
+                                             <content>
+                                                <VBox spacing="3.0" style="-fx-border-color: #c7c7c7;">
+                                                   <children>
+                                                      <MenuButton mnemonicParsing="false" text="Heightlevel">
+                                                        <items>
+                                                          <MenuItem mnemonicParsing="false" text="0" />
+                                                          <MenuItem mnemonicParsing="false" text="1" />
+                                                            <MenuItem mnemonicParsing="false" text="2" />
+                                                            <MenuItem mnemonicParsing="false" text="3" />
+                                                            <MenuItem mnemonicParsing="false" text="4" />
+                                                        </items>
+                                                      </MenuButton>
+                                                      <ToggleButton layoutX="13.0" layoutY="13.0" mnemonicParsing="false" text="All heightlevels" />
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                   <padding>
+                                                      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                   </padding>
+                                                </VBox>
+                                             </content>
+                                          </Tab>
+                                       </tabs>
+                                    </TabPane>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane expanded="false" layoutX="11.0" layoutY="201.0" text="Other">
+                     <content>
+                        <StackPane>
+                           <children>
+                              <GridPane>
+                                 <children>
+                                    <TabPane>
+                                       <tabs>
+                                          <Tab closable="false" disable="true" text="Other">
+                                             <content>
+                                                <VBox spacing="3.0" style="-fx-border-color: #c7c7c7;">
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                   <padding>
+                                                      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label alignment="CENTER" text="N/A yet" />
+                                                   </children>
+                                                </VBox>
+                                             </content>
+                                          </Tab>
+                                       </tabs>
+                                    </TabPane>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </VBox>
+         </right>
+         <bottom>
+            <VBox style="-fx-border-color: #c7c7c7; -fx-background-color: #dbdbdb;">
+               <children>
+                  <Label text="Created by rune-server user Chivvon" BorderPane.alignment="CENTER" />
+               </children>
+            </VBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
